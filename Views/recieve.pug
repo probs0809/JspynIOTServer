@@ -1,0 +1,16 @@
+doctype html
+html
+ head
+  title '#{apis}'
+  script(src="/socket.io/socket.io.js")
+  script(src="https://code.jquery.com/jquery-1.11.1.js")
+  script api = '#{apis}' ;
+   include recieve.js
+ body
+  p(id="value")
+  br
+  p(id="lattitude")
+  br
+  p(id="longitude")
+  br
+  span(id="sensorValue")  

@@ -1,0 +1,14 @@
+doctype html
+html
+	head
+		title '#{apis}'
+	  	meta(name="viewport" content="initial-scale=1.0, user-scalable=no")
+	  	meta(charset="utf-8")
+	  	script(src="/socket.io/socket.io.js")
+	  	script(src="https://code.jquery.com/jquery-1.11.1.js")
+	  	script var api = '#{apis}'; tag = '#{tags}' ; var count = '#{count}' ;
+   			include gps.js
+ 	body
+ 		button(class="refMap" style="wrdth:100%;border:1px solid white;background-color:white;font-family:sans-serif;border-radius:5px")
+  		div(id="map" style="width:100%;height:100vh") 
+  		script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4K_tnhOwxPWs1cjtVHUnI1t8oWVy21hc&callback=myMap")

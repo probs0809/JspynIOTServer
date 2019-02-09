@@ -1,0 +1,10 @@
+doctype html
+html
+ head
+  title #{name}
+  script(src="/socket.io/socket.io.js")
+  script(src="https://code.jquery.com/jquery-1.11.1.js")
+  script var api = '#{apis}' ; var name = '#{name}' ; var count = '#{count}'
+   include recieve.js
+ body
+  span(id="sensorValue")
