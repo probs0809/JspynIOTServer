@@ -1,4 +1,4 @@
-//This code is the copyright of Prabodh Mayekar
+
 var WebSocketServer   = require('websocket').server;
 var bodyParser        = require('body-parser');
 var upload            = require('multer')();

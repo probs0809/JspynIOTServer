@@ -32,7 +32,7 @@ app.post('/sensor', (req, res) => {
 
     eventEmitter.emit(req.body.api + req.body.sensorName + req.body.count , req.body.value);//under progress
     var send = io.of('/' + req.body.api + '/' + req.body.sensorName + '/' + req.body.count);
-    send.emit('sensorValue', processedValue);
+    send.emit('sensorValue', req.body.value);
     send.emit('sensorName', req.body.sensorName);
     res.writeHead(200);
     res.end();
@@ -43,7 +43,7 @@ app.get('/:api(*0*8*0*9*j*s*p*n*)/sensor/:sensorName/:count/:value', (req, res) 
    // console.log(parseInt(processedValue));
     eventEmitter.emit(req.params.api + req.params.sensorName + req.params.count , req.params.value);//under progress
     var send = io.of('/' + req.params.api + '/' + req.params.sensorName + '/' + req.params.count);
-    send.emit('sensorValue', processedValue);
+    send.emit('sensorValue', req.params.value);
     send.emit('sensorName', req.params.sensorName);
     res.writeHead(200);
     res.end();

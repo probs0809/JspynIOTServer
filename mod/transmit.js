@@ -17,10 +17,11 @@ app.get("/:api(*0*8*0*9*j*s*p*n*)/:gpioValue" , (req, res) =>{
 
 var transmit = (api, gpioValue) =>{
 	var nsp = io.of("/" + api);
-  	nsp.emit("value" , gpioValue);
-  	eventEmitter.emit("api" , api);
-  	eventEmitter.emit("IOT_DEVICE" , gpioValue);
-  	eventEmitter.emit("IOT_DEVICE" + api , gpioValue);
-    mqttClient.publish(api, gpioValue);
+		nsp.emit("value" , gpioValue);
+  		eventEmitter.emit("api" , api);
+  		eventEmitter.emit("IOT_DEVICE" , gpioValue);
+  		eventEmitter.emit("IOT_DEVICE" + api , gpioValue);
+		mqttClient.publish(api, gpioValue);
+		
 }
 module.exports = app;
