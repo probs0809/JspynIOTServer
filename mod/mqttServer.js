@@ -1,4 +1,4 @@
-var mosca = require('mosca');
+const mosca = require('mosca');
 const http = require('http');
  
 var settings = {
@@ -7,27 +7,22 @@ var settings = {
  
 var server = new mosca.Server(settings);
  
-server.on('published', function(packet, client) {
+server.on('published', (packet, client) => {
   //console.log('Published', packet.payload);
   //console.log('client', client.toString());
 });
 
-server.on('clientConnected', function(client) {
+server.on('clientConnected', (client) => {
   var topic = client.id;
-  var fTopic = topic.slice(0,41);
-  http.get("http://us-central1-jspyn-39604.cloudfunctions.net/jspynio/transmit/status/"+fTopic+"/1")
+  var api = topic.slice(0,41);
+  //http.get("http://us-central1-jspyn-39604.cloudfunctions.net/jspynio/transmit/status/"+api+"/1")
 });
 
-server.on('clientDisconnected', function(client){
+server.on('clientDisconnected', (client) => {
   var topic = client.id;
-  var fTopic = topic.slice(0,41);
-  http.get("http://us-central1-jspyn-39604.cloudfunctions.net/jspynio/transmit/status/"+fTopic+"/0")
+  var api = topic.slice(0,41);
+  //http.get("http://us-central1-jspyn-39604.cloudfunctions.net/jspynio/transmit/status/"+api+"/0")
 });
 
- 
-server.on('ready', setup);
- 
-function setup() {
-  console.log('Mosca server is up and running');
-}
+server.on('ready', () => console.log(`Mosca server is up and running on ${settings.port}`));
 
