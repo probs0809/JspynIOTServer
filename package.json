@@ -19,7 +19,7 @@
     "mqtt": "^2.18.8",
     "mqtt-packet": "^6.3.2",
     "multer": "^1.4.2",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "socket.io": "^2.3.0",
     "socket.io-client": "^2.3.0",
     "websocket": "^1.0.31"
